@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>CSS Magic Green</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  color: white;
+
+  /* 💚 зелёный премиум фон */
+  background:
+    radial-gradient(circle at top, #0f3d2e, #04130e);
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 50px 20px 30px;
+}
+
+.header h1 {
+  font-size: 48px;
+  background: linear-gradient(90deg, #00ff99, #00cc66);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header p {
+  opacity: 0.7;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px 10%;
+}
+
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 20px;
+  height: 160px;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* hover */
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0,255,140,0.4);
+}
+
+/* titles */
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.card p {
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.purple {
+  background: #00cc66;
+  color: white;
+  transition: 0.3s;
+}
+
+.purple:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00cc66;
+}
+
+.pink {
+  background: #00ff99;
+  color: black;
+  animation: pulse 1s infinite;
+}
+
+/* pulse */
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* slider */
+.slider {
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  position: relative;
+}
+
+.slider::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #00ff99;
+  border-radius: 50%;
+  top: -7px;
+  left: 0;
+  animation: move 2s infinite alternate;
+}
+
+@keyframes move {
+  to { left: 90%; }
+}
+
+/* ball */
+.ball {
+  width: 25px;
+  height: 25px;
+  background: #00ff99;
+  border-radius: 50%;
+  animation: bounce 1s ease-in-out infinite;
+  box-shadow: 0 0 10px #00ff99;
+}
+
+@keyframes bounce {
+  50% { transform: translateY(-30px); }
+}
+
+/* loader */
+.loader {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(255,255,255,0.2);
+  border-top: 3px solid #00ff99;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* fade */
+.fade {
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>CSS Magic</h1>
+  <p>Зелёная коллекция анимаций</p>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>Кнопки</h3>
+    <button class="btn purple">Hover</button>
+    <button class="btn pink">Pulse</button>
+  </div>
+
+  <div class="card">
+    <h3>Слайдер</h3>
+    <div class="slider"></div>
+  </div>
+
+  <div class="card">
+    <h3>Мяч</h3>
+    <div class="ball"></div>
+  </div>
+
+  <div class="card">
+    <h3>Лоадер</h3>
+    <div class="loader"></div>
+  </div>
+
+  <div class="card">
+    <h3>Hover Card</h3>
+    <p>Наведи мышь</p>
+  </div>
+
+  <div class="card fade">
+    <h3>Fade In</h3>
+    <p>Плавное появление</p>
+  </div>
+
+</div>
+
+</body>
+</html>
